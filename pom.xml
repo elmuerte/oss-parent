@@ -14,7 +14,7 @@
 	<developers>
 		<developer>
 			<name>Michiel Hendriks</name>
-			<email>oss-parent@elmuerte.com</email>
+			<email>maven+oss-parent@elmuerte.com</email>
 		</developer>
 	</developers>
 
@@ -112,10 +112,13 @@
 					<inherited>true</inherited>
 					<configuration>
 						<archive>
+							<manifest>
+								<addDefaultEntries>true</addDefaultEntries>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							</manifest>
 							<manifestEntries>
 								<Build-Timestamp>${maven.build.timestamp}</Build-Timestamp>
 								<Build-Revision>${build.scm.revision}</Build-Revision>
-								<Build-Branch>${build.scm.branch}</Build-Branch>
 							</manifestEntries>
 						</archive>
 					</configuration>
@@ -282,6 +285,7 @@
 						<goals>
 							<goal>validate</goal>
 						</goals>
+						<phase>verify</phase>
 					</execution>
 				</executions>
 			</plugin>
